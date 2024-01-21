@@ -1,0 +1,37 @@
+<mat-drawer-container class="min-h-full mx-auto max-w-7xl border-x">
+
+  <mat-drawer-content class="p-6">
+      <mat-card *ngFor="let studentItem of projectData" class="col-md-4 mb-3">
+          <mat-card-header>
+              <mat-card-title style="font-size: 40px; color: rgb(1, 1, 170);">{{ studentItem.Student_id }} {{ studentItem.Name_ENG }}</mat-card-title>
+          </mat-card-header><br>
+          <mat-card-content>
+              <p style="font-size: 16px; color: rgb(0, 0, 255);">{{ studentItem.category }}</p><br>
+              <p style="font-size: 16px; "> Authors:
+                  <a href="#" class="blue-underlined">
+                      {{ studentItem.st_id_1 }} {{ studentItem.n_ENG_1 }}</a>,
+                  <a href="#" class="blue-underlined">
+                      {{ studentItem.st_id_2 }} {{ studentItem.n_ENG_2 }}</a>,
+                  <a href="#" class="blue-underlined">
+                      {{ studentItem.st_id_3 }} {{ studentItem.n_ENG_3 }}</a>
+              </p>
+              <p style="font-size: 16px;">Advisor:
+                  <a href="#" class="blue-underlined">
+                      {{ studentItem.advisor }}, {{ studentItem.coadvisor }}</a>
+              </p>
+              <p style="font-size: 14px;">Year: {{ studentItem.year | date: 'MM-dd-yyyy' }}</p>
+              <p style="font-size: 14px;">Link: <a href="{{ studentItem.link }}" target="_blank"
+                      style="text-decoration: underline; color: blue;">{{ studentItem.link }}</a></p>
+          </mat-card-content>
+      </mat-card>
+
+      <mat-card *ngFor="let studentItem of projectData" class="col-md-4 mb-3">
+          <mat-card-content>
+              <p style="font-size: 24px; font-weight: bold;">Abstract:</p><br>
+              <p class="description" style="font-size: 18px;">{{ studentItem.description }}</p>
+
+          </mat-card-content>
+      </mat-card>
+
+  </mat-drawer-content>
+</mat-drawer-container>

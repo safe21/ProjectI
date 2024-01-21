@@ -1,0 +1,42 @@
+.navbar {
+    display: flex;
+    justify-content:  flex-start;
+    align-items: center;
+    background-color: #333;
+    padding: 40px 150px;
+    color: rgb(255, 255, 255);
+  }
+  
+  .spacer{
+    flex: 1 1 auto;
+  }
+
+.menu {
+    margin-left: 5%; /* จัดขวา */
+  }
+  
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    font-size: medium;
+  }
+  
+  .menu li {
+    margin-right: 20px;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: normal;
+    transition: color 0.3s;
+  }
+  
+  .menu li a:hover {
+    color: #fffdb9;
+  }
+  
+  .menu ul button:hover{
+    color: #fffdb9;
+  }

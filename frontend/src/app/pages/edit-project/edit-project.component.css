@@ -1,0 +1,177 @@
+mat-card {
+  max-width: 1200px;
+  margin: auto;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 8px;
+  position: relative;
+  overflow: auto; /* เพิ่มการเลื่อนแนวตั้ง */
+}
+
+/* สไตล์สำหรับปุ่ม Save */
+mat-card button.save-button {
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+/* สไตล์สำหรับปุ่มยกเลิก */
+mat-card button.cancel-button {
+  margin-top: 20px;
+  background-color: #ff1f1f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+mat-card button.save-button:hover {
+  background-color: #0056b3;
+}
+
+mat-card button.save-button span {
+  position: relative;
+}
+mat-card button.cancel-button:hover {
+  background-color: #cd0202;
+}
+mat-card button.cancel-button span {
+  position: relative;
+}
+
+mat-card:hover::after {
+  opacity: 1;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////// */
+.custom-input-width {
+  /* width: 450px; */
+  width: 30vw;
+  overflow: auto;
+}
+
+.medium-input-width {
+  width: 20vw; /* กำหนดความกว้างเป็น 300px */
+  overflow: auto;
+}
+
+.short-input-width {
+  width: 2ovw; /* กำหนดความกว้างเป็น 300px */
+  overflow: auto;
+}
+
+
+form {
+  display: flex;
+  /* ให้สมบูรณ์แบบแนวนอน */
+  flex-direction: column;
+  /* จัดเรียงข้อมูลแบบคอลัมน์ */
+  font-size: medium;
+  padding: 30px;
+  /* เพิ่มระยะห่างของข้อมูลใน MatCard */
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  /* จัดเรียงแถวให้แสดงฟอร์มซ้าย-ขวา */
+  margin-bottom: 20px;
+  /* ระยะห่างระหว่างแถว */
+}
+
+.form-column {
+  flex: 1;
+  /* ให้แต่ละคอลัมน์ขยายเต็มพื้นที่ */
+  padding: 0 10px;
+  /* ระยะห่างด้านซ้ายและขวาของคอลัมน์ */
+}
+
+
+/* สไตล์สำหรับ label ของฟิลด์รูปภาพ */
+label[for="projectImage"] {
+  margin-bottom: 10px;
+  display: block;
+
+}
+
+.form input {
+  padding: 1px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+.form textarea {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+.form select {
+  padding: 1px 10px;
+  border: 1px solid #000000;
+  border-radius: 5px 0 0 5px;
+  background-color: #d1d1d1;
+}
+
+.form select option {
+  background-color: #ffffff;
+}
+
+.input select {
+  padding: 2px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+.form-head {
+  display: block;
+  font-size: 40px;
+  padding: 0;
+  margin-top: 20px;
+  /* margin: 0 20px; */
+  text-align: center;
+  transition: all 0.8s 0.6s;
+  background-color: #616161;
+}
+
+.form-head h1 {
+  margin-top: 20px;
+  color: #fff;
+}
+
+/* ________________________________________________________________________________________________________________________  */
+
+/* ให้กล่องข้อความเป็นแถวเดียวเมื่อเต็มความกว้างและสูงขึ้นเมื่อมีเนื้อหามากขึ้น */
+textarea {
+  resize: vertical;
+}
+
+/* ระบุขนาดสูงสุดของกล่องข้อความเป็น 255 ตัวอักษร */
+textarea[maxlength] {
+  width: 100%;
+}
+
+.has-error {
+  position: relative;
+}
+
+.has-error mat-error {
+  color: red;
+  position: absolute;
+  bottom: -20px;
+  /* ปรับตำแหน่งของข้อความแจ้งเตือนด้านล่าง */
+  left: 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* จัดตำแหน่งปุ่มให้อยู่ตรงกลางแนวนอน */
+  align-items: center; /* จัดตำแหน่งปุ่มให้อยู่ตรงกลางแนวตั้ง */
+  gap: 10px; /* ระยะห่างระหว่างปุ่ม */
+}

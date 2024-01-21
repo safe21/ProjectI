@@ -1,0 +1,56 @@
+<div class="filters-container">
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        My Project
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card-content>
+      <button mat-button (click)="Add()">+ Add Project</button>
+    </mat-card-content>
+    <mat-card-content>
+      <button mat-button routerLink="/myproject" >test</button>
+    </mat-card-content>
+  </mat-expansion-panel><br>
+
+  <mat-card class="major-card">
+    <mat-card-header>
+      <mat-card-title>Major</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- filters.component.html -->
+      <mat-selection-list [multiple]="false">
+        <mat-list-option (click)="onCategorySelected('All')">
+          <a class="text-sm">ALL</a>
+        </mat-list-option>
+        <!-- <mat-card-title><a href="/home" class="text-sm">ALL</a></mat-card-title>   -->
+        <mat-list-option (click)="onCategorySelected('Computer Engineering')">
+          <a class="text-sm">Computer Engineering</a>
+        </mat-list-option>
+        <mat-list-option (click)="onCategorySelected('Electrical Engineering')">
+          <a class="text-sm">Electrical Engineering</a>
+        </mat-list-option>
+        <mat-list-option (click)="onCategorySelected('Mechanical Engineering')">
+          <a class="text-sm">Mechanical Engineering</a>
+        </mat-list-option>
+        <mat-list-option (click)="onCategorySelected('Civil Engineering')">
+          <a class="text-sm">Civil Engineering</a>
+        </mat-list-option>
+        <mat-list-option (click)="onCategorySelected('Chemical Engineering')">
+          <a class="text-sm">Chemical Engineering</a>
+        </mat-list-option>
+        <mat-list-option (click)="onCategorySelected('Industrial Engineering')">
+          <a class="text-sm">Industrial Engineering</a>
+        </mat-list-option>
+        <mat-list-option (click)="onCategorySelected('Materials Engineering')">
+          <a class="text-sm">Materials Engineering</a>
+        </mat-list-option>
+        <mat-list-option (click)="onCategorySelected('Environmental Engineering')">
+          <a class="text-sm">Environmental Engineering</a>
+        </mat-list-option>
+      </mat-selection-list>
+
+    </mat-card-content>
+  </mat-card>
+</div>

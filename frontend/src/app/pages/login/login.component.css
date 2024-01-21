@@ -1,0 +1,74 @@
+/* สีของข้อความ "Sign Up" เมื่อไม่ hover */
+.mat-card a {
+    color: #1976D2;
+}
+
+/* สีของข้อความ "Sign Up" เมื่อ Hover */
+.mat-card a:hover {
+    color: #0D47A1;
+    /* เปลี่ยนเป็นสีน้ำเงินเข้มเมื่อ hover */
+}
+
+
+mat-card-title {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+mat-form-field.full-width {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+}
+
+.hint {
+    text-align: center;
+    color: #333;
+    margin-top: 15px;
+}
+
+
+
+  /* styles.css or your custom CSS file */
+.full-width {
+    width: 100%;
+  }
+  
+  .signin-signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .signin-card, .signup-card {
+    width: 600px;
+    margin: 20px;
+  }
+  
+  .signin-card, .signup-card, .signin-with-google-card {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .signin-with-google-card {
+    background-color: #ffffff;
+  }
+  
+  
+  
+  
+  
+  

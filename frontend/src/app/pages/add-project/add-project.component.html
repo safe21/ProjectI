@@ -1,0 +1,379 @@
+<div class="container mt-5">
+  <mat-card>
+    <form action="">
+      <mat-card-title class="text-center underline" *ngIf="showForm1">CREATE PROJECT</mat-card-title><br>
+      <form *ngIf="showForm1" [formGroup]="projectForm" class="form-container">
+        <div class="form-row">
+          <div class="form-column">
+
+            <p>Project Name (ENG) : </p>
+            <mat-form-field class="custom-input-width">
+              <mat-label>Project Name (ENG)</mat-label>
+              <input matInput type="text" [(ngModel)]="titleENG" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="titleENG" placeholder="Enter Project Name" required>
+            </mat-form-field>
+          </div>
+
+          <div class="form-column">
+            <p>Project Name (TH) : </p>
+            <mat-form-field class="custom-input-width">
+              <mat-label>Project Name (TH)</mat-label>
+              <input matInput type="text" [(ngModel)]="titleTH" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="titleTH" placeholder="Enter Project Name" required>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <p>Abstract : </p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Abstract</mat-label>
+          <textarea matInput rows="4" [(ngModel)]="description" [ngModelOptions]="{standalone: true}"
+            class="form-control" id="description" placeholder="Enter Abstract" maxlength="255" required></textarea>
+        </mat-form-field>
+
+        <div class="form-row">
+          <div class="form-column">
+            <mat-form-field class="custom-input-width">
+              <mat-label>Select an option</mat-label>
+
+              <mat-select matInput [(ngModel)]="category" [ngModelOptions]="{standalone: true}" class="form-control"
+                id="category">
+                <mat-option value="Computer Engineering">Computer Engineering</mat-option>
+                <mat-option value="Electrical Engineering">Electrical Engineering</mat-option>
+                <mat-option value="Mechanical Engineering">Mechanical Engineering</mat-option>
+                <mat-option value="Civil Engineering">Civil Engineering</mat-option>
+                <mat-option value="Chemical Engineering">Chemical Engineering</mat-option>
+                <mat-option value="Industrial Engineering">Industrial Engineering</mat-option>
+                <mat-option value="Materials Engineering">Materials Engineering</mat-option>
+                <mat-option value="Environmental Engineering">Environmental Engineering</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="form-column">
+            <mat-form-field class="custom-input-width">
+              <mat-label>Choose a date</mat-label>
+              <input matInput type="text" [(ngModel)]="year" [ngModelOptions]="{ standalone: true }"
+                class="form-control" name="year" [matDatepicker]="yearPicker" required>
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="yearPicker"></mat-datepicker-toggle>
+              <mat-datepicker #yearPicker></mat-datepicker>
+              <mat-error *ngIf="projectForm.get('year')?.touched">
+                <span *ngIf="projectForm.get('year')?.hasError('required')">Year is required.</span>
+                <span *ngIf="projectForm.get('year')?.hasError('pattern')">Invalid date format. Please use MM/DD/YYYY
+                  format.</span>
+                <span *ngIf="projectForm.get('year')?.hasError('maxlength')">Year input is too long. Maximum length is
+                  10
+                  characters.</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <p>Link : </p>
+        <mat-form-field class="custom-input-width">
+          <mat-label>link</mat-label>
+          <input matInput type="text" [(ngModel)]="link" [ngModelOptions]="{standalone: true}" class="form-control"
+            id="link" placeholder="Enter link" required>
+        </mat-form-field>
+
+
+      </form>
+
+
+      <form *ngIf="showForm2" [formGroup]="projectForm" class="form-container">
+        <!-- <h2>Teams</h2>
+        <p>Author 1 *</p>
+        <div class="form-row">
+          <div class="form-column">
+            <mat-form-field class="short-input-width">
+              <mat-label>Student ID</mat-label>
+              <input matInput type="text" [(ngModel)]="st_id_1" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="st_id_1" placeholder="Student ID" required>
+            </mat-form-field>
+          </div>
+
+
+          <div class="form-column">
+            <mat-form-field class="medium-input-width">
+              <mat-label>Name (ENG)</mat-label>
+              <input matInput type="text" [(ngModel)]="n_ENG_1" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="n_ENG_1" placeholder="Name ENG" required>
+            </mat-form-field>
+          </div>
+
+          <div class="form-column">
+
+            <mat-form-field class="medium-input-width">
+              <mat-label>ชื่อ-นามสกุล</mat-label>
+              <input matInput type="text" [(ngModel)]="n_TH_1" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="n_TH_1" placeholder="Name TH" required>
+            </mat-form-field>
+          </div>
+          <div class="form-column"><br>
+            <button mat-button color="primary">submit</button>
+          </div>
+        </div>
+
+        <p>Author 2</p>
+        <div class="form-row">
+          <div class="form-column">
+            <mat-form-field class="short-input-width">
+              <mat-label>Student ID</mat-label>
+              <input matInput type="text" [(ngModel)]="st_id_2" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="st_id_2" placeholder="Student ID">
+            </mat-form-field>
+          </div>
+
+
+          <div class="form-column">
+            <mat-form-field class="medium-input-width">
+              <mat-label>Name (ENG)</mat-label>
+              <input matInput type="text" [(ngModel)]="n_ENG_2" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="n_ENG_2" placeholder="Name ENG">
+            </mat-form-field>
+          </div>
+
+          <div class="form-column">
+            <mat-form-field class="medium-input-width">
+              <mat-label>ชื่อ-นามสกุล</mat-label>
+              <input matInput type="text" [(ngModel)]="n_TH_2" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="n_TH_2" placeholder="Name TH">
+            </mat-form-field>
+          </div>
+          <div class="form-column"><br>
+            <button mat-button color="primary">submit</button>
+          </div>
+        </div>
+
+        <p>Author 3</p>
+        <div class="form-row">
+          <div class="form-column">
+            <mat-form-field class="short-input-width">
+              <mat-label>Student ID</mat-label>
+              <input matInput type="text" [(ngModel)]="st_id_3" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="st_id_3" placeholder="Student ID">
+            </mat-form-field>
+          </div>
+
+
+          <div class="form-column">
+            <mat-form-field class="medium-input-width">
+              <mat-label>Name (ENG)</mat-label>
+              <input matInput type="text" [(ngModel)]="n_ENG_3" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="n_ENG_3" placeholder="Name ENG">
+            </mat-form-field>
+          </div>
+
+          <div class="form-column">
+            <mat-form-field class="medium-input-width">
+              <mat-label>ชื่อ-นามสกุล</mat-label>
+              <input matInput type="text" [(ngModel)]="n_TH_3" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="n_TH_3" placeholder="Name TH">
+            </mat-form-field>
+          </div>
+          <div class="form-column"><br>
+            <button mat-button color="primary">submit</button>
+          </div>
+        </div>
+
+        <p>Author 4 (ถ้ามี)</p>
+        <div class="form-row">
+          <div class="form-column">
+            <mat-form-field class="short-input-width">
+              <mat-label>Student ID</mat-label>
+              <input matInput type="text" [(ngModel)]="st_id_4" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="st_id_4" placeholder="Student ID">
+            </mat-form-field>
+          </div>
+
+
+          <div class="form-column">
+            <mat-form-field class="medium-input-width">
+              <mat-label>Name (ENG)</mat-label>
+              <input matInput type="text" [(ngModel)]="n_ENG_4" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="n_ENG_4" placeholder="Name ENG">
+            </mat-form-field>
+          </div>
+
+          <div class="form-column">
+            <mat-form-field class="medium-input-width">
+              <mat-label>ชื่อ-นามสกุล</mat-label>
+              <input matInput type="text" [(ngModel)]="n_TH_4" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="n_TH_4" placeholder="Name TH">
+            </mat-form-field>
+          </div>
+          <div class="form-column"><br>
+            <button mat-button color="primary">submit</button>
+          </div>
+        </div> -->
+
+        <h2>Teams</h2>
+      <div class="form-row">
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>Student ID</mat-label>
+            <input matInput formControlName="Student_id" class="form-control" id="Student_id" placeholder="Student ID">
+          </mat-form-field>
+        </div>
+
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>FirstName-LastName(ENG)</mat-label>
+            <input matInput formControlName="Name_ENG" class="form-control" id="Name_ENG" placeholder="Name ENG">
+          </mat-form-field>
+        </div>
+
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>ชื่อ-นามสกุล</mat-label>
+            <input matInput formControlName="Name_TH" class="form-control" id="Name_TH" placeholder="Name TH">
+          </mat-form-field>
+        </div>
+        <div class="form-column"><br>
+          <button mat-button color="primary" (click)="Add()" [disabled]="isAddButtonDisabled()">Add</button>
+        </div>
+      </div>
+
+      <p>Student1</p>
+      <div class="form-row">
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>Student ID</mat-label>
+            <input matInput formControlName="st_id_1" class="form-control" id="st_id_1" placeholder="Student ID">
+          </mat-form-field>
+        </div>
+
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>FirstName-LastName(ENG)</mat-label>
+            <input matInput formControlName="n_ENG_1" class="form-control" id="n_ENG_1" placeholder="Name ENG">
+          </mat-form-field>
+        </div>
+
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>ชื่อ-นามสกุล</mat-label>
+            <input matInput formControlName="n_TH_1" class="form-control" id="n_TH_1" placeholder="Name TH">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <p>Student2</p>
+      <div class="form-row">
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>Student ID</mat-label>
+            <input matInput formControlName="st_id_2" class="form-control" id="st_id_2" placeholder="Student ID">
+          </mat-form-field>
+        </div>
+
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>FirstName-LastName(ENG)</mat-label>
+            <input matInput formControlName="n_ENG_2" class="form-control" id="n_ENG_2" placeholder="Name ENG">
+          </mat-form-field>
+        </div>
+
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>ชื่อ-นามสกุล</mat-label>
+            <input matInput formControlName="n_TH_2" class="form-control" id="n_TH_2" placeholder="Name TH">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <p>Student3</p>
+      <div class="form-row">
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>Student ID</mat-label>
+            <input matInput formControlName="st_id_3" class="form-control" id="st_id_3" placeholder="Student ID">
+          </mat-form-field>
+        </div>
+
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>FirstName-LastName(ENG)</mat-label>
+            <input matInput formControlName="n_ENG_3" class="form-control" id="n_ENG_3" placeholder="Name ENG">
+          </mat-form-field>
+        </div>
+
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>ชื่อ-นามสกุล</mat-label>
+            <input matInput formControlName="n_TH_3" class="form-control" id="n_TH_3" placeholder="Name TH">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <p>Student4</p>
+      <div class="form-row">
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>Student ID</mat-label>
+            <input matInput formControlName="st_id_4" class="form-control" id="st_id_4" placeholder="Student ID">
+          </mat-form-field>
+        </div>
+
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>FirstName-LastName(ENG)</mat-label>
+            <input matInput formControlName="n_ENG_4" class="form-control" id="n_ENG_4" placeholder="Name ENG">
+          </mat-form-field>
+        </div>
+
+        <div class="form-column">
+          <mat-form-field class="medium-input-width">
+            <mat-label>ชื่อ-นามสกุล</mat-label>
+            <input matInput formControlName="n_TH_4" class="form-control" id="n_TH_4" placeholder="Name TH">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- <div *ngIf="students.length > 0">
+        <h2>Added Students</h2>
+        <div *ngFor="let student of students; let i = index" class="student-box form-column">
+          <div class="info-box">
+            <strong>Student ID:</strong>
+            <div class="data-box">{{ student['st_id_' + (i + 1)] }}</div>
+      
+            <strong>FirstName-LastName(ENG):</strong>
+            <div class="data-box">{{ student['n_ENG_' + (i + 1)] }}</div>
+      
+            <strong>ชื่อ-นามสกุล:</strong>
+            <div class="data-box">{{ student['n_TH_' + (i + 1)] }}</div>
+          </div>
+        </div>
+      </div><br> -->
+
+        <h2>Advisor</h2>
+        <div class="form-row">
+          <div class="form-column">
+            <mat-form-field class="custom-input-width">
+              <mat-label>Advisor</mat-label>
+              <input matInput type="text" [(ngModel)]="advisor" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="advisor" placeholder="Enter Advisor" required>
+            </mat-form-field>
+          </div>
+
+          <div class="form-column">
+            <mat-form-field class="custom-input-width">
+              <mat-label>Co Advisor</mat-label>
+              <input matInput type="text" [(ngModel)]="coadvisor" [ngModelOptions]="{standalone: true}"
+                class="form-control" id="coadvisor" placeholder="Enter Co Advisor">
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+
+
+
+      <button mat-button color="warn" (click)="goToPreviousForm()" *ngIf="showForm2">Back</button>
+      <button mat-button color="primary" (click)="goToNextForm()" *ngIf="showForm1">Next</button>
+
+      <button mat-raised-button color="warn" (click)="onCancel()" *ngIf="showForm1">Cancel</button>
+      <button mat-raised-button color="primary" (click)="save()" *ngIf="showForm2">Save</button>
+    </form>
+  </mat-card>
+</div>

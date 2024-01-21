@@ -1,0 +1,21 @@
+<mat-toolbar class="navbar max-w mx-auto border-x justify-between">
+  <a routerLink="/home">NU Engineering Project Database System</a>
+  <div class="spacer"></div>
+  <div class="menu">
+    <ul>
+      <li><a href="/home" >Home</a></li>
+      <li><a href="/about" >About</a></li>
+      <li><a href="#" >Services</a></li>
+      <button mat-button [matMenuTriggerFor]="languageMenu">
+        <mat-icon>language</mat-icon>
+        <mat-icon>expand_more</mat-icon>
+      </button>
+      <mat-menu #languageMenu="matMenu">
+        <button mat-menu-item (click)="switchLanguage('ไทย')">ไทย</button>
+        <button mat-menu-item (click)="switchLanguage('English')">English</button>
+      </mat-menu>
+      <li><a href="/login">Sign In</a></li>
+
+    </ul>
+  </div>
+</mat-toolbar>
